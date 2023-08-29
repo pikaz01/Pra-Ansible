@@ -1,0 +1,16 @@
+---
+- name: Ansible playbook for UCD server
+  hosts: ucd_server
+  become: yes
+
+  tasks:
+    - name: Starting the UCD server
+      ansible.builtin.shell: /opt/ibm-ucd/server/bin/server start
+      
+- name: Ansible playbook for ucd agent
+  hosts: ucd_agent
+  become: yes
+
+  tasks:
+    - name: Starting the UCD agent
+      ansible.builtin.shell: /opt/ibm-ucd/agent/bin/agent start
